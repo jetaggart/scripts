@@ -1,0 +1,18 @@
+#!/usr/bin/env runhaskell
+
+{-# LANGUAGE OverloadedStrings #-}
+
+module Main where
+
+import Turtle
+import Data.List
+import Data.Text (pack)
+import System.Environment
+
+main :: IO ()
+main = do
+  args <- getArgs
+  let command = intercalate " " $ ["rspec"] ++ args
+  putStrLn command
+  shell (pack command) empty
+  return ()
