@@ -4,14 +4,11 @@
 
 module Main where
 
-import Turtle
 import Data.List
-import Data.Text (pack)
 import System.Environment
+import System.Process
 
 main :: IO ()
 main = do
-  args <- getArgs
-  let commandArgs = map pack args
-  proc "rspec" commandArgs empty
+  rawSystem "rspec" =<< getArgs
   return ()
